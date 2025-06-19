@@ -10,8 +10,7 @@ export const translations = {
     hero: {
       headline1: "Immigration Isn't Just Paperwork.",
       headline2: "It's Personal.",
-      subheadline: "Hi, I'm Yuliya Balina — certified immigration consultant, fluent in English, Ukrainian, and Russian, with 19+ years of hands-on experience helping skilled professionals start their new life in Canada.",
-      cta: "Book a Free Consultation"
+     
     },
     whoIAm: {
       heading: "From Ukraine to Canada. From Newcomer to National Expert.",
