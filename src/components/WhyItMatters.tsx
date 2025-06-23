@@ -70,17 +70,8 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
               
               <div className="space-y-6">
                 <blockquote className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-relaxed">
-                  {t.whyItMatters.quote}
+                  You're not just applying for a visa. You're building a life. A home. A future.
                 </blockquote>
-                
-                <div className="space-y-3 text-xl sm:text-2xl lg:text-3xl font-semibold text-white/95">
-                  <div className="transform hover:scale-105 transition-transform duration-300">
-                    A home.
-                  </div>
-                  <div className="transform hover:scale-105 transition-transform duration-300">
-                    A future.
-                  </div>
-                </div>
                 
                 <div className="pt-6 border-t border-white/20">
                   <p className="text-lg sm:text-xl lg:text-2xl font-medium text-white/90 leading-relaxed">
