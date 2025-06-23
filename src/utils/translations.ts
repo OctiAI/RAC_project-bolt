@@ -10,7 +10,8 @@ export const translations = {
     hero: {
       headline1: "Immigration Isn't Just Paperwork.",
       headline2: "It's Personal.",
-     
+      subheadline: "I'm Yuliya Balina, a certified immigration consultant with 19+ years of experience helping skilled professionals like you immigrate to Canada. RCIC #R506278.",
+      cta: "Schedule My Free Consultation"
     },
     whoIAm: {
       heading: "From Ukraine to Canada. From Newcomer to National Expert.",
@@ -120,7 +121,8 @@ export const translations = {
     hero: {
       headline1: "Імміграція — це не просто документи.",
       headline2: "Це особисте.",
-      
+      subheadline: "Я Юлія Баліна, сертифікований консультант з імміграції з 19+ роками досвіду допомоги кваліфікованим професіоналам, таким як ви, іммігрувати до Канади. RCIC #R506278.",
+      cta: "Запланувати мою безкоштовну консультацію"
     },
     whoIAm: {
       heading: "З України до Канади. Від новачка до національного експерта.",
@@ -230,7 +232,8 @@ export const translations = {
     hero: {
       headline1: "Иммиграция — это не просто документы.",
       headline2: "Это личное.",
-  
+      subheadline: "Я Юлия Балина, сертифицированный консультант по иммиграции с 19+ годами опыта помощи квалифицированным специалистам, таким как вы, иммигрировать в Канаду. RCIC #R506278.",
+      cta: "Заказать бесплатную консультацию"
     },
     whoIAm: {
       heading: "Из Украины в Канаду. От новичка к национальному эксперту.",
