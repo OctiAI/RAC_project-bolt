@@ -93,7 +93,7 @@ export const translations = {
     },
     cta: {
       heading: "Let's Talk About Your Immigration Plan.",
-      subheading: "Book your free consultation with me, and let's build your strategy together — clear, direct, and tailored to your real life.",
+      subheading: "Book your **free consultation** with me, and let's build your strategy together — clear, direct, and tailored to your real life.",
       benefits: [
         "No pressure",
         "No legal-speak",
@@ -211,7 +211,7 @@ export const translations = {
     },
     cta: {
       heading: "Давайте поговоримо про ваш план імміграції.",
-      subheading: "Запишіться на безкоштовну консультацію зі мною, і давайте разом побудуємо вашу стратегію — чітку, пряму і пристосовану до вашого справжнього життя.",
+      subheading: "Запишіться на **безкоштовну консультацію** зі мною, і давайте разом побудуємо вашу стратегію — чітку, пряму і пристосовану до вашого справжнього життя.",
       benefits: [
         "Без тиску",
         "Без юридичної мови",
@@ -329,7 +329,7 @@ export const translations = {
     },
     cta: {
       heading: "Давайте поговорим о вашем плане иммиграции.",
-      subheading: "Запишитесь на бесплатную консультацию со мной, и давайте вместе построим вашу стратегию — четкую, прямую и адаптированную к вашей реальной жизни.",
+      subheading: "Запишитесь на **бесплатную консультацию** со мной, и давайте вместе построим вашу стратегию — четкую, прямую и адаптированную к вашей реальной жизни.",
       benefits: [
         "Без давления",
         "Без юридического жаргона",

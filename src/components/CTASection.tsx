@@ -22,6 +22,17 @@ const CTASection: React.FC<CTASectionProps> = ({ currentLanguage }) => {
     t.cta.benefits[2]
   ];
 
+  // Function to render text with bold formatting
+  const renderTextWithBold = (text: string) => {
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+    return parts.map((part, index) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return <strong key={index}>{part.slice(2, -2)}</strong>;
+      }
+      return part;
+    });
+  };
+
   return (
     <section ref={ref} className="py-20 bg-navy-primary relative overflow-hidden">
       {/* Background Elements */}
@@ -43,7 +54,7 @@ const CTASection: React.FC<CTASectionProps> = ({ currentLanguage }) => {
             {t.cta.heading}
           </h2>
           <p className="text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
-            {t.cta.subheading}
+            {renderTextWithBold(t.cta.subheading)}
           </p>
         </motion.div>
 
