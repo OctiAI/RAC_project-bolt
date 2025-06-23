@@ -71,26 +71,33 @@ const WhatIDo: React.FC<WhatIDoProps> = ({ currentLanguage }) => {
           ))}
         </motion.div>
 
-        {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gold-primary/20 group"
-            >
-              <div className="flex items-start space-x-4">
-                <div className="bg-gold-primary/10 p-3 rounded-full group-hover:bg-gold-primary group-hover:text-white transition-all duration-300">
-                  <feature.icon className="w-6 h-6 text-gold-primary group-hover:text-white" />
+        {/* Features List */}
+        <div className="max-w-4xl mx-auto mb-16">
+          <div className="space-y-4">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -50 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
+                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gold-primary/20 group"
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="bg-gold-primary/10 p-4 rounded-full group-hover:bg-gold-primary group-hover:text-white transition-all duration-300 flex-shrink-0">
+                    <feature.icon className="w-8 h-8 text-gold-primary group-hover:text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-gray-700 leading-relaxed font-medium text-lg">
+                      {feature.text}
+                    </p>
+                  </div>
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <CheckCircle className="w-6 h-6 text-gold-primary" />
+                  </div>
                 </div>
-                <p className="text-gray-700 leading-relaxed font-medium flex-1">
-                  {feature.text}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Closing Statement */}
