@@ -46,7 +46,7 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <div className="bg-gradient-to-br from-gold-primary to-gold-secondary p-12 rounded-2xl shadow-2xl max-w-4xl mx-auto">
             <div className="text-6xl text-white/30 mb-6">"</div>
@@ -57,11 +57,23 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
           </div>
         </motion.div>
 
+        {/* Subheadline */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-center mb-16"
+        >
+          <p className="text-lg sm:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
+            {t.whyItMatters.subheadline}
+          </p>
+        </motion.div>
+
         {/* Values Cards with Titles */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           className="grid md:grid-cols-3 gap-8"
         >
           {values.map((value, index) => (
@@ -69,7 +81,7 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
+              transition={{ duration: 0.6, delay: 0.6 + (index * 0.1) }}
               className="text-center"
             >
               {/* Title and Icon Above Card */}
@@ -121,7 +133,7 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
