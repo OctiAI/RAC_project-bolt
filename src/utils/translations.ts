@@ -44,8 +44,7 @@ export const translations = {
       }
     },
     whyItMatters: {
-      quote: "Because This Is About More Than Paperwork.",
-      subheadline: "You're not just applying for a visa. You're building a life. A home. A future. I take that seriously. At RAC Immigration, we operate by a simple code:",
+      quote: "You're not just applying for a visa. You're building a life.",
       values: {
         respect: {
           title: "Respect",
@@ -156,8 +155,7 @@ export const translations = {
       }
     },
     whyItMatters: {
-      quote: "Тому що це більше, ніж документи.",
-      subheadline: "Ви не просто подаєте заявку на візу. Ви будуєте життя. Дім. Майбутнє. Я ставлюся до цього серйозно. У RAC Immigration ми працюємо за простим кодексом:",
+      quote: "Ви не просто подаєте заявку на візу. Ви будуєте життя.",
       values: {
         respect: {
           title: "Повага",
@@ -268,8 +266,7 @@ export const translations = {
       }
     },
     whyItMatters: {
-      quote: "Потому что это больше, чем документы.",
-      subheadline: "Вы не просто подаете заявление на визу. Вы строите жизнь. Дом. Будущее. Я отношусь к этому серьезно. В RAC Immigration мы работаем по простому кодексу:",
+      quote: "Вы не просто подаете заявление на визу. Вы строите жизнь.",
       values: {
         respect: {
           title: "Уважение",
