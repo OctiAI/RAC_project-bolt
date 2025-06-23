@@ -71,7 +71,7 @@ const Header: React.FC<HeaderProps> = ({ currentLanguage, setCurrentLanguage }) 
           <div className="hidden md:flex items-center space-x-2">
             {languages.map((lang) => (
               <motion.button
-                key={lang.code}
+                key={lang.code} 
                 onClick={() => setCurrentLanguage(lang.code)}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
