@@ -58,25 +58,27 @@ const CTASection: React.FC<CTASectionProps> = ({ currentLanguage }) => {
           </p>
         </motion.div>
 
-        {/* Benefits */}
+        {/* Benefits - Centered */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid md:grid-cols-3 gap-8 mb-12"
+          className="mb-12"
         >
-          {benefits.map((benefit, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
-              className="flex items-center space-x-3 justify-center md:justify-start"
-            >
-              <CheckCircle className="w-6 h-6 text-gold-primary flex-shrink-0" />
-              <span className="text-white font-medium">{benefit}</span>
-            </motion.div>
-          ))}
+          <div className="max-w-2xl mx-auto space-y-4">
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
+                className="flex items-center justify-center space-x-3"
+              >
+                <CheckCircle className="w-6 h-6 text-gold-primary flex-shrink-0" />
+                <span className="text-white font-medium text-lg">{benefit}</span>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         {/* CTA Buttons */}
