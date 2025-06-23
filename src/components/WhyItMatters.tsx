@@ -62,8 +62,13 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
         >
           <div className="bg-gradient-to-br from-gold-primary to-gold-secondary rounded-2xl p-12 shadow-2xl max-w-4xl mx-auto">
             <div className="text-6xl text-white/30 mb-6">"</div>
-            <blockquote className="text-2xl sm:text-3xl font-bold text-white leading-tight">
-              {t.whyItMatters.quote}
+            <blockquote className="text-2xl sm:text-3xl font-bold text-white leading-tight space-y-4">
+              <div>{t.whyItMatters.quote}</div>
+              <div>A home.</div>
+              <div>A future.</div>
+              <div className="text-xl sm:text-2xl mt-6">
+                I take that seriously. At RAC Immigration, we operate by a simple code:
+              </div>
             </blockquote>
             <div className="text-6xl text-white/30 mt-6 rotate-180">"</div>
           </div>
