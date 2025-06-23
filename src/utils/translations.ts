@@ -44,7 +44,9 @@ export const translations = {
       }
     },
     whyItMatters: {
-      quote: "You're not just applying for a visa. You're building a life.",
+      mainHeading: "Because This Is About More Than Paperwork.",
+      quote: "You're not just applying for a visa. You're building a life. A home. A future.",
+      codeIntro: "I take that seriously. At RAC Immigration, we operate by a simple code:",
       values: {
         respect: {
           title: "Respect",
@@ -155,21 +157,23 @@ export const translations = {
       }
     },
     whyItMatters: {
-      quote: "Ви не просто подаєте заявку на візу. Ви будуєте життя.",
+      mainHeading: "Тому що це більше, ніж просто документи.",
+      quote: "Ви не просто подаєте заявку на візу. Ви будуєте життя. Дім. Майбутнє.",
+      codeIntro: "Я ставлюся до цього серйозно. У RAC Immigration ми працюємо за простим кодексом:",
       values: {
         respect: {
           title: "Повага",
-          description: "Every client is treated with dignity, regardless of where they come from.",
+          description: "До кожного клієнта ставляться з гідністю, незалежно від того, звідки вони походять.",
           example: "Ми віримо, що кожна історія має значення і кожна мрія заслуговує на повагу. Ваше походження, ваші виклики, ваші надії — все це дійсне і важливе для нас."
         },
         accountability: {
           title: "Відповідальність",
-          description: "We own our work, our results, and our promises.",
+          description: "Ми беремо на себе відповідальність за нашу роботу, наші результати та наші обіцянки.",
           example: "Коли ми кажемо, що щось зробимо, ми це робимо. Якщо щось йде не так, ми це виправляємо. Ваш успіх — наша відповідальність, і ми ставимося до цього серйозно."
         },
         commitment: {
           title: "Відданість",
-          description: "We don't stop until your goal is real.",
+          description: "Ми не зупиняємося, поки ваша мета не стане реальністю.",
           example: "Імміграція може бути довгою подорожжю з підйомами і спадами. Ми з вами на кожному кроці, святкуючи перемоги і працюючи разом над викликами."
         }
       }
@@ -266,21 +270,23 @@ export const translations = {
       }
     },
     whyItMatters: {
-      quote: "Вы не просто подаете заявление на визу. Вы строите жизнь.",
+      mainHeading: "Потому что это больше, чем просто документы.",
+      quote: "Вы не просто подаете заявление на визу. Вы строите жизнь. Дом. Будущее.",
+      codeIntro: "Я отношусь к этому серьезно. В RAC Immigration мы работаем по простому кодексу:",
       values: {
         respect: {
           title: "Уважение",
-          description: "Every client is treated with dignity, regardless of where they come from.",
+          description: "К каждому клиенту относятся с достоинством, независимо от того, откуда они родом.",
           example: "Мы верим, что каждая история имеет значение и каждая мечта заслуживает уважения. Ваше происхождение, ваши вызовы, ваши надежды — все это действительно и важно для нас."
         },
         accountability: {
           title: "Ответственность",
-          description: "We own our work, our results, and our promises.",
+          description: "Мы берем на себя ответственность за нашу работу, наши результаты и наши обещания.",
           example: "Когда мы говорим, что что-то сделаем, мы это делаем. Если что-то идет не так, мы это исправляем. Ваш успех — наша ответственность, и мы относимся к этому серьезно."
         },
         commitment: {
           title: "Преданность",
-          description: "We don't stop until your goal is real.",
+          description: "Мы не останавливаемся, пока ваша цель не станет реальностью.",
           example: "Иммиграция может быть долгим путешествием с взлетами и падениями. Мы с вами на каждом шагу, празднуя победы и работая вместе над вызовами."
         }
       }

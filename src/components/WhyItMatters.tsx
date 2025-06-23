@@ -49,7 +49,7 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-primary leading-tight max-w-5xl mx-auto">
-            Because This Is About More Than Paperwork.
+            {currentLanguage === 'en' ? 'Because This Is About More Than Paperwork.' : t.whyItMatters.mainHeading}
           </h2>
         </motion.div>
 
@@ -70,12 +70,12 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
               
               <div className="space-y-6">
                 <blockquote className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-relaxed">
-                  You're not just applying for a visa. You're building a life. A home. A future.
+                  {t.whyItMatters.quote}
                 </blockquote>
                 
                 <div className="pt-6 border-t border-white/20">
                   <p className="text-lg sm:text-xl lg:text-2xl font-medium text-white/90 leading-relaxed">
-                    I take that seriously. At RAC Immigration, we operate by a simple code:
+                    {t.whyItMatters.codeIntro}
                   </p>
                 </div>
               </div>
@@ -145,7 +145,7 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
               </motion.div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
