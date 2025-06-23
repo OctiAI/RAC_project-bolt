@@ -1,118 +1,183 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { translations } from '../utils/translations';
 
 type Language = 'en' | 'uk' | 'ru';
 
-interface HeroProps {
+interface HeaderProps {
   currentLanguage: Language;
+  setCurrentLanguage: (lang: Language) => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ currentLanguage }) => {
+const Header: React.FC<HeaderProps> = ({ currentLanguage, setCurrentLanguage }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const t = translations[currentLanguage];
 
+  const navItems = [
+    { key: 'home', href: '#home' },
+    { key: 'about', href: '#about' },
+    { key: 'services', href: '#services' },
+    { key: 'blog', href: '#blog' },
+    { key: 'contact', href: '#contact' }
+  ];
+
+  const languages = [
+    { code: 'en' as Language, flag: '🇬🇧', name: 'EN' },
+    { code: 'uk' as Language, flag: '🇺🇦', name: 'UKR' },
+    { code: 'ru' as Language, flag: '🇷🇺', name: 'RU' }
+  ];
+
+  // Определяем активную секцию при скролле
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('section');
+      let current = 'home';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop - 200 && window.scrollY < sectionTop + sectionHeight - 200) {
+          current = section.id;
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Обработчик клика по пункту меню
+  const handleNavClick = (key: string) => {
+    setActiveSection(key);
+    setIsMenuOpen(false);
+  };
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <img
-          src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop"
-          alt="Professional woman"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-navy-primary/70"></div>
-      </div>
-
-      {/* RCIC License Badge */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-        className="absolute top-20 left-4 sm:top-24 sm:left-8 bg-gold-primary text-navy-primary px-3 py-2 rounded-full text-xs font-bold shadow-lg z-10"
-      >
-        RCIC #R506278
-      </motion.div>
-
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="space-y-8"
-        >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="fixed top-0 left-0 right-0 bg-navy-primary/95 backdrop-blur-sm z-40 border-b-2 border-gold-primary"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="block"
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center space-x-2"
             >
-              {t.hero.headline1}
+              <div className="w-10 h-10 bg-gold-primary rounded-full flex items-center justify-center border-2 border-white">
+                <span className="text-navy-primary font-bold text-sm">RAC</span>
+              </div>
+              <div className="text-white">
+                <div className="font-bold text-lg leading-tight">RAC Immigration</div>
+                <div className="text-xs text-gold-primary">RCIC #R506278</div>
+              </div>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="block text-gold-primary mt-2"
-            >
-              {t.hero.headline2}
-            </motion.div>
-          </h1>
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto"
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-8">
+            {navItems.map((item) => (
+              <motion.a
+                key={item.key}
+                href={item.href}
+                whileHover={{ y: -2 }}
+                className={`transition-colors font-medium ${
+                  activeSection === item.key
+                    ? 'text-gold-primary border-b-2 border-gold-primary'
+                    : 'text-white hover:text-gold-primary'
+                }`}
+                onClick={() => handleNavClick(item.key)}
+              >
+                {t.nav[item.key as keyof typeof t.nav]}
+              </motion.a>
+            ))}
+          </nav>
+
+          {/* Language Toggle */}
+          <div className="hidden md:flex items-center space-x-2">
+            {languages.map((lang) => (
+              <motion.button
+                key={lang.code}
+                onClick={() => setCurrentLanguage(lang.code)}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+                  currentLanguage === lang.code
+                    ? 'bg-gold-primary text-navy-primary'
+                    : 'text-white hover:text-gold-primary'
+                }`}
+              >
+                <span className="mr-1">{lang.flag}</span>
+                {lang.name}
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden text-white hover:text-gold-primary transition-colors"
           >
-            {t.hero.subheadline}
-          </motion.p>
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
 
+        {/* Mobile Menu */}
+        {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-            className="pt-8"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-navy-primary border-t border-gold-primary/20"
           >
-            <motion.button
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 0 25px rgba(193, 157, 83, 0.5)"
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gold-primary text-navy-primary px-8 py-4 rounded-lg font-bold text-lg border-4 border-white/20 shadow-2xl hover:border-white/40 transition-all duration-300 flex items-center mx-auto space-x-3"
-             
-            >
-              <Calendar className="w-6 h-6" />
-              <span>{t.hero.cta}</span>
-            </motion.button>
+            <div className="py-4 space-y-4">
+              {navItems.map((item) => (
+                <a
+                  key={item.key}
+                  href={item.href}
+                  className={`block transition-colors font-medium px-4 py-2 ${
+                    activeSection === item.key
+                      ? 'text-gold-primary bg-gold-primary/10'
+                      : 'text-white hover:text-gold-primary'
+                  }`}
+                  onClick={() => handleNavClick(item.key)}
+                >
+                  {t.nav[item.key as keyof typeof t.nav]}
+                </a>
+              ))}
+              
+              <div className="flex items-center space-x-2 px-4 pt-4 border-t border-gold-primary/20">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      setCurrentLanguage(lang.code);
+                      setIsMenuOpen(false);
+                    }}
+                    className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+                      currentLanguage === lang.code
+                        ? 'bg-gold-primary text-navy-primary'
+                        : 'text-white hover:text-gold-primary'
+                    }`}
+                  >
+                    <span className="mr-1">{lang.flag}</span>
+                    {lang.name}
+                  </button>
+                ))}
+              </div>
+            </div>
           </motion.div>
-        </motion.div>
+        )}
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center"
-        >
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-gold-primary rounded-full mt-2"
-          />
-        </motion.div>
-      </motion.div>
-    </section>
+    </motion.header>
   );
 };
 
-export default Hero;
+export default Header;
