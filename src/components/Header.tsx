@@ -66,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({ currentLanguage, setCurrentLanguage }) 
     const element = document.querySelector(href);
     if (element) {
       const headerHeight = 64; // Height of fixed header
-      const extraOffset = key === 'about' ? 100 : 0; // Extra offset for About section
+      const extraOffset = key === 'about' ? -10 : 0; // Negative offset to scroll lower for About section (10px gap from EXPERT badge)
       const elementPosition = element.offsetTop - headerHeight - extraOffset;
       
       window.scrollTo({
