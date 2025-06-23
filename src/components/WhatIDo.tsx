@@ -31,7 +31,7 @@ const WhatIDo: React.FC<WhatIDoProps> = ({ currentLanguage }) => {
   ];
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-br from-gold-light to-gold-primary/10 relative overflow-hidden">
+    <section id="services" ref={ref} className="py-20 bg-gradient-to-br from-gold-light to-gold-primary/10 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div

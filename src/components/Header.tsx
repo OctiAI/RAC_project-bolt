@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { translations } from '../utils/translations';
@@ -12,6 +12,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ currentLanguage, setCurrentLanguage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const t = translations[currentLanguage];
 
   const navItems = [
@@ -27,6 +28,33 @@ const Header: React.FC<HeaderProps> = ({ currentLanguage, setCurrentLanguage }) 
     { code: 'uk' as Language, flag: '🇺🇦', name: 'UKR' },
     { code: 'ru' as Language, flag: '🇷🇺', name: 'RU' }
   ];
+
+  // Определяем активную секцию при скролле
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('section');
+      let current = 'home';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop - 200 && window.scrollY < sectionTop + sectionHeight - 200) {
+          current = section.id;
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Обработчик клика по пункту меню
+  const handleNavClick = (key: string) => {
+    setActiveSection(key);
+    setIsMenuOpen(false);
+  };
 
   return (
     <motion.header
@@ -60,7 +88,12 @@ const Header: React.FC<HeaderProps> = ({ currentLanguage, setCurrentLanguage }) 
                 key={item.key}
                 href={item.href}
                 whileHover={{ y: -2 }}
-                className="text-white hover:text-gold-primary transition-colors font-medium"
+                className={`transition-colors font-medium ${
+                  activeSection === item.key
+                    ? 'text-gold-primary border-b-2 border-gold-primary'
+                    : 'text-white hover:text-gold-primary'
+                }`}
+                onClick={() => handleNavClick(item.key)}
               >
                 {t.nav[item.key as keyof typeof t.nav]}
               </motion.a>
@@ -109,8 +142,12 @@ const Header: React.FC<HeaderProps> = ({ currentLanguage, setCurrentLanguage }) 
                 <a
                   key={item.key}
                   href={item.href}
-                  className="block text-white hover:text-gold-primary transition-colors font-medium px-4"
-                  onClick={() => setIsMenuOpen(false)}
+                  className={`block transition-colors font-medium px-4 py-2 ${
+                    activeSection === item.key
+                      ? 'text-gold-primary bg-gold-primary/10'
+                      : 'text-white hover:text-gold-primary'
+                  }`}
+                  onClick={() => handleNavClick(item.key)}
                 >
                   {t.nav[item.key as keyof typeof t.nav]}
                 </a>
