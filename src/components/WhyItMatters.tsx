@@ -41,11 +41,23 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
   return (
     <section ref={ref} className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Main Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl sm:text-5xl font-bold text-navy-primary leading-tight">
+            Because This Is About More Than Paperwork.
+          </h2>
+        </motion.div>
+
         {/* Centered Quote Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="text-center mb-16"
         >
           <div className="bg-gradient-to-br from-gold-primary to-gold-secondary rounded-2xl p-12 shadow-2xl max-w-4xl mx-auto">
@@ -61,7 +73,7 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
         >
           {values.map((value, index) => (
@@ -69,7 +81,7 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
+              transition={{ duration: 0.6, delay: 0.6 + (index * 0.1) }}
               className="relative h-80"
               style={{ perspective: '1000px' }}
             >
