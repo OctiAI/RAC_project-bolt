@@ -1,4 +1,5 @@
-import React from 'react';Add commentMore actions
+
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar } from 'lucide-react';
 import { translations } from '../utils/translations';
@@ -7,12 +8,9 @@ type Language = 'en' | 'uk' | 'ru';
 
 interface HeroProps {
   currentLanguage: Language;
-
 }
 
 const Hero: React.FC<HeroProps> = ({ currentLanguage }) => {
-
-
   const t = translations[currentLanguage];
 
   return (
@@ -54,24 +52,68 @@ const Hero: React.FC<HeroProps> = ({ currentLanguage }) => {
             >
               {t.hero.headline1}
             </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="block text-gold-primary mt-2"
+            >
+              {t.hero.headline2}
+            </motion.div>
+          </h1>
 
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto"
+          >
+            {t.hero.subheadline}
+          </motion.p>
 
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="pt-8"
+          >
+            <motion.button
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 0 25px rgba(193, 157, 83, 0.5)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gold-primary text-navy-primary px-8 py-4 rounded-lg font-bold text-lg border-4 border-white/20 shadow-2xl hover:border-white/40 transition-all duration-300 flex items-center mx-auto space-x-3"
+             
+            >
+              <Calendar className="w-6 h-6" />
+              <span>{t.hero.cta}</span>
+            </motion.button>
+          </motion.div>
+        </motion.div>
+      </div>
 
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 0.5 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center"
+        >
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-1 h-3 bg-gold-primary rounded-full mt-2"
+          />
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Hero;
