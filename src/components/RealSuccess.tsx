@@ -28,7 +28,7 @@ const RealSuccess: React.FC<RealSuccessProps> = ({ currentLanguage }) => {
   };
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-br from-navy-primary to-navy-secondary relative overflow-hidden">
+    <section id="testimonials" ref={ref} className="py-20 bg-gradient-to-br from-navy-primary to-navy-secondary relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="w-full h-full" style={{

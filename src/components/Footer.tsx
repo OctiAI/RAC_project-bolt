@@ -21,11 +21,11 @@ const Footer: React.FC<FooterProps> = ({ currentLanguage }) => {
   const footerLinks = [
     { text: t.footer.privacy, href: '#' },
     { text: t.footer.terms, href: '#' },
-    { text: t.footer.contact, href: '#contact' }
+    { text: t.footer.contact, href: '#footer' }
   ];
 
   return (
-    <footer className="bg-navy-primary text-white">
+    <footer id="footer" className="bg-navy-primary text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer */}
         <div className="py-12 grid md:grid-cols-3 gap-8">

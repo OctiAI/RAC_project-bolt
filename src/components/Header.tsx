@@ -19,8 +19,8 @@ const Header: React.FC<HeaderProps> = ({ currentLanguage, setCurrentLanguage }) 
     { key: 'home', href: '#home' },
     { key: 'about', href: '#about' },
     { key: 'services', href: '#services' },
-    { key: 'blog', href: '#blog' },
-    { key: 'contact', href: '#contact' }
+    { key: 'blog', href: '#testimonials' }, // Changed to point to testimonials section
+    { key: 'contact', href: '#footer' } // Changed to point to footer section
   ];
 
   const languages = [
@@ -51,9 +51,22 @@ const Header: React.FC<HeaderProps> = ({ currentLanguage, setCurrentLanguage }) 
   }, []);
 
   // Обработчик клика по пункту меню
-  const handleNavClick = (key: string) => {
-    setActiveSection(key);
+  const handleNavClick = (key: string, href: string) => {
+    // Special handling for blog and contact links
+    if (key === 'blog') {
+      setActiveSection('testimonials');
+    } else if (key === 'contact') {
+      setActiveSection('footer');
+    } else {
+      setActiveSection(key);
+    }
     setIsMenuOpen(false);
+    
+    // Smooth scroll to section
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -89,11 +102,16 @@ const Header: React.FC<HeaderProps> = ({ currentLanguage, setCurrentLanguage }) 
                 href={item.href}
                 whileHover={{ y: -2 }}
                 className={`transition-colors font-medium ${
-                  activeSection === item.key
+                  (activeSection === item.key) || 
+                  (item.key === 'blog' && activeSection === 'testimonials') ||
+                  (item.key === 'contact' && activeSection === 'footer')
                     ? 'text-gold-primary border-b-2 border-gold-primary'
                     : 'text-white hover:text-gold-primary'
                 }`}
-                onClick={() => handleNavClick(item.key)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.key, item.href);
+                }}
               >
                 {t.nav[item.key as keyof typeof t.nav]}
               </motion.a>
@@ -143,11 +161,16 @@ const Header: React.FC<HeaderProps> = ({ currentLanguage, setCurrentLanguage }) 
                   key={item.key}
                   href={item.href}
                   className={`block transition-colors font-medium px-4 py-2 ${
-                    activeSection === item.key
+                    (activeSection === item.key) || 
+                    (item.key === 'blog' && activeSection === 'testimonials') ||
+                    (item.key === 'contact' && activeSection === 'footer')
                       ? 'text-gold-primary bg-gold-primary/10'
                       : 'text-white hover:text-gold-primary'
                   }`}
-                  onClick={() => handleNavClick(item.key)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.key, item.href);
+                  }}
                 >
                   {t.nav[item.key as keyof typeof t.nav]}
                 </a>
