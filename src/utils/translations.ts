@@ -10,6 +10,7 @@ export const translations = {
     hero: {
       headline1: "Immigration Isn't Just Paperwork.",
       headline2: "It's Personal.",
+      subheadline: "I'm Yuliya Balina, a certified immigration consultant with 19+ years of experience helping skilled professionals like you immigrate to Canada. RCIC #R506278.",
       cta: "Schedule My Free Consultation"
     },
     whoIAm: {
@@ -120,6 +121,7 @@ export const translations = {
     hero: {
       headline1: "Імміграція — це не просто документи.",
       headline2: "Це особисте.",
+      subheadline: "Я Юлія Баліна, сертифікований консультант з імміграції з 19+ роками досвіду допомоги кваліфікованим професіоналам, таким як ви, іммігрувати до Канади. RCIC #R506278.",
       cta: "Запланувати мою безкоштовну консультацію"
     },
     whoIAm: {
@@ -157,17 +159,17 @@ export const translations = {
       values: {
         respect: {
           title: "Повага",
-          description: "До кожного клієнта ставляться з гідністю, незалежно від того, звідки вони походять.",
+          description: "Every client is treated with dignity, regardless of where they come from.",
           example: "Ми віримо, що кожна історія має значення і кожна мрія заслуговує на повагу. Ваше походження, ваші виклики, ваші надії — все це дійсне і важливе для нас."
         },
         accountability: {
           title: "Відповідальність",
-          description: "Ми берemo на себе відповідальність за нашу роботу, наші результати та наші обіцянки.",
+          description: "We own our work, our results, and our promises.",
           example: "Коли ми кажемо, що щось зробимо, ми це робимо. Якщо щось йде не так, ми це виправляємо. Ваш успіх — наша відповідальність, і ми ставимося до цього серйозно."
         },
         commitment: {
           title: "Відданість",
-          description: "Ми не зупиняємося, поки ваша мета не стане реальністю.",
+          description: "We don't stop until your goal is real.",
           example: "Імміграція може бути довгою подорожжю з підйомами і спадами. Ми з вами на кожному кроці, святкуючи перемоги і працюючи разом над викликами."
         }
       }
@@ -230,6 +232,7 @@ export const translations = {
     hero: {
       headline1: "Иммиграция — это не просто документы.",
       headline2: "Это личное.",
+      subheadline: "Я Юлия Балина, сертифицированный консультант по иммиграции с 19+ годами опыта помощи квалифицированным специалистам, таким как вы, иммигрировать в Канаду. RCIC #R506278.",
       cta: "Заказать бесплатную консультацию"
     },
     whoIAm: {
@@ -267,17 +270,17 @@ export const translations = {
       values: {
         respect: {
           title: "Уважение",
-          description: "К каждому клиенту относятся с достоинством, независимо от того, откуда они родом.",
+          description: "Every client is treated with dignity, regardless of where they come from.",
           example: "Мы верим, что каждая история имеет значение и каждая мечта заслуживает уважения. Ваше происхождение, ваши вызовы, ваши надежды — все это действительно и важно для нас."
         },
         accountability: {
           title: "Ответственность",
-          description: "Мы берем на себя ответственность за нашу работу, наши результаты и наши обещания.",
+          description: "We own our work, our results, and our promises.",
           example: "Когда мы говорим, что что-то сделаем, мы это делаем. Если что-то идет не так, мы это исправляем. Ваш успех — наша ответственность, и мы относимся к этому серьезно."
         },
         commitment: {
           title: "Преданность",
-          description: "Мы не останавливаемся, пока ваша цель не станет реальностью.",
+          description: "We don't stop until your goal is real.",
           example: "Иммиграция может быть долгим путешествием с взлетами и падениями. Мы с вами на каждом шагу, празднуя победы и работая вместе над вызовами."
         }
       }
