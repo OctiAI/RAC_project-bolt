@@ -41,85 +41,81 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
   return (
     <section ref={ref} className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-stretch">
-          {/* Left Side - Quote */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="bg-gradient-to-br from-gold-primary to-gold-secondary flex items-center justify-center p-12 rounded-2xl shadow-2xl min-h-[500px]"
-          >
-            <div className="text-center">
-              <div className="text-6xl text-white/30 mb-6">"</div>
-              <blockquote className="text-2xl sm:text-3xl font-bold text-white leading-tight">
-                {t.whyItMatters.quote}
-              </blockquote>
-              <div className="text-6xl text-white/30 mt-6 rotate-180">"</div>
-            </div>
-          </motion.div>
+        {/* Centered Quote Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <div className="bg-gradient-to-br from-gold-primary to-gold-secondary rounded-2xl p-12 shadow-2xl max-w-4xl mx-auto">
+            <div className="text-6xl text-white/30 mb-6">"</div>
+            <blockquote className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+              {t.whyItMatters.quote}
+            </blockquote>
+            <div className="text-6xl text-white/30 mt-6 rotate-180">"</div>
+          </div>
+        </motion.div>
 
-          {/* Right Side - Values Cards */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6"
-          >
-            {values.map((value, index) => (
+        {/* Values Cards - Centered and Side by Side */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+        >
+          {values.map((value, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
+              className="relative h-80"
+              style={{ perspective: '1000px' }}
+            >
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
-                className="relative h-32"
-                style={{ perspective: '1000px' }}
+                className="relative w-full h-full transition-transform duration-700 cursor-pointer"
+                style={{
+                  transformStyle: 'preserve-3d',
+                  transform: flippedCard === index ? 'rotateY(180deg)' : 'rotateY(0deg)'
+                }}
+                onClick={() => setFlippedCard(flippedCard === index ? null : index)}
+                whileHover={{ scale: 1.02 }}
               >
-                <motion.div
-                  className="relative w-full h-full transition-transform duration-700 cursor-pointer"
+                {/* Front Side */}
+                <div
+                  className="absolute inset-0 bg-white rounded-xl shadow-lg border-2 border-gold-primary/20 p-6 flex flex-col items-center text-center"
                   style={{
-                    transformStyle: 'preserve-3d',
-                    transform: flippedCard === index ? 'rotateY(180deg)' : 'rotateY(0deg)'
+                    backfaceVisibility: 'hidden'
                   }}
-                  onClick={() => setFlippedCard(flippedCard === index ? null : index)}
-                  whileHover={{ scale: 1.02 }}
                 >
-                  {/* Front Side */}
-                  <div
-                    className="absolute inset-0 bg-white rounded-xl shadow-lg border-2 border-gold-primary/20 p-6 flex items-center space-x-4"
-                    style={{
-                      backfaceVisibility: 'hidden'
-                    }}
-                  >
-                    <div className="bg-gold-primary/10 p-3 rounded-full">
-                      <value.icon className="w-8 h-8 text-gold-primary" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-navy-primary mb-2">
-                        {value.title}
-                      </h3>
-                      <p className="text-gray-600">
-                        {value.description}
-                      </p>
-                    </div>
+                  <div className="bg-gold-primary/10 p-4 rounded-full mb-6">
+                    <value.icon className="w-10 h-10 text-gold-primary" />
                   </div>
+                  <h3 className="text-2xl font-bold text-navy-primary mb-4">
+                    {value.title}
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed font-medium">
+                    {value.description}
+                  </p>
+                </div>
 
-                  {/* Back Side */}
-                  <div
-                    className="absolute inset-0 bg-navy-primary rounded-xl shadow-lg p-6 flex items-center justify-center"
-                    style={{
-                      backfaceVisibility: 'hidden',
-                      transform: 'rotateY(180deg)'
-                    }}
-                  >
-                    <p className="text-white text-center leading-relaxed">
-                      {value.example}
-                    </p>
-                  </div>
-                </motion.div>
+                {/* Back Side */}
+                <div
+                  className="absolute inset-0 bg-navy-primary rounded-xl shadow-lg p-6 flex items-center justify-center"
+                  style={{
+                    backfaceVisibility: 'hidden',
+                    transform: 'rotateY(180deg)'
+                  }}
+                >
+                  <p className="text-white text-center leading-relaxed">
+                    {value.example}
+                  </p>
+                </div>
               </motion.div>
-            ))}
-          </motion.div>
-        </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
