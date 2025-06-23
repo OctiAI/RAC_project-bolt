@@ -126,11 +126,6 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
                   <p className="text-gray-700 leading-relaxed font-medium text-center">
                     {value.description}
                   </p>
-                  <div className="mt-auto pt-4">
-                    <div className="text-xs text-gold-primary font-semibold uppercase tracking-wider">
-                      Click to learn more
-                    </div>
-                  </div>
                 </div>
 
                 {/* Back Side */}
@@ -145,11 +140,6 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
                     <p className="text-white leading-relaxed text-sm">
                       {value.example}
                     </p>
-                    <div className="mt-6 pt-4 border-t border-white/20">
-                      <div className="text-xs text-gold-primary font-semibold uppercase tracking-wider">
-                        Click to go back
-                      </div>
-                    </div>
                   </div>
                 </div>
               </motion.div>
