@@ -90,7 +90,7 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-20"
         >
           {values.map((value, index) => (
             <motion.div
@@ -145,6 +145,32 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
               </motion.div>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Personal Message Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="text-center"
+        >
+          <div className="bg-navy-primary rounded-2xl p-8 lg:p-12 shadow-2xl max-w-4xl mx-auto relative overflow-hidden">
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-20 h-20 bg-gold-primary/10 rounded-full translate-x-10 -translate-y-10"></div>
+            <div className="absolute bottom-0 left-0 w-16 h-16 bg-gold-primary/10 rounded-full -translate-x-8 translate-y-8"></div>
+            
+            <div className="relative z-10 space-y-4">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-primary leading-tight">
+                {t.whyItMatters.personalMessage.line1}
+              </div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-primary leading-tight">
+                {t.whyItMatters.personalMessage.line2}
+              </div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-primary leading-tight">
+                {t.whyItMatters.personalMessage.line3}
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

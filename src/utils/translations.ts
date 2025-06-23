@@ -47,6 +47,11 @@ export const translations = {
       mainHeading: "Because This Is About More Than Paperwork.",
       quote: "You're not just applying for a visa. You're building a life. A home. A future.",
       codeIntro: "I take that seriously. At RAC Immigration, we operate by a simple code:",
+      personalMessage: {
+        line1: "This isn't a case file to me.",
+        line2: "It's your life.",
+        line3: "Let's make it count."
+      },
       values: {
         respect: {
           title: "Respect",
@@ -160,6 +165,11 @@ export const translations = {
       mainHeading: "Тому що це більше, ніж просто документи.",
       quote: "Ви не просто подаєте заявку на візу. Ви будуєте життя. Дім. Майбутнє.",
       codeIntro: "Я ставлюся до цього серйозно. У RAC Immigration ми працюємо за простим кодексом:",
+      personalMessage: {
+        line1: "Це не просто справа для мене.",
+        line2: "Це ваше життя.",
+        line3: "Давайте зробимо його значущим."
+      },
       values: {
         respect: {
           title: "Повага",
@@ -273,6 +283,11 @@ export const translations = {
       mainHeading: "Потому что это больше, чем просто документы.",
       quote: "Вы не просто подаете заявление на визу. Вы строите жизнь. Дом. Будущее.",
       codeIntro: "Я отношусь к этому серьезно. В RAC Immigration мы работаем по простому кодексу:",
+      personalMessage: {
+        line1: "Это не просто дело для меня.",
+        line2: "Это ваша жизнь.",
+        line3: "Давайте сделаем ее значимой."
+      },
       values: {
         respect: {
           title: "Уважение",
