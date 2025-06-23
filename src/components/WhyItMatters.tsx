@@ -22,19 +22,22 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
       icon: Heart,
       title: t.whyItMatters.values.respect.title,
       description: t.whyItMatters.values.respect.description,
-      example: t.whyItMatters.values.respect.example
+      example: t.whyItMatters.values.respect.example,
+      hoverText: "Every client is treated with dignity, regardless of where they come from"
     },
     {
       icon: Shield,
       title: t.whyItMatters.values.accountability.title,
       description: t.whyItMatters.values.accountability.description,
-      example: t.whyItMatters.values.accountability.example
+      example: t.whyItMatters.values.accountability.example,
+      hoverText: "We own our work, our results, and our promises"
     },
     {
       icon: Target,
       title: t.whyItMatters.values.commitment.title,
       description: t.whyItMatters.values.commitment.description,
-      example: t.whyItMatters.values.commitment.example
+      example: t.whyItMatters.values.commitment.example,
+      hoverText: "We don't stop until your goal is real"
     }
   ];
 
@@ -57,7 +60,7 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
           </div>
         </motion.div>
 
-        {/* Values Titles Centered */}
+        {/* Values Titles Centered with Hover */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -70,14 +73,22 @@ const WhyItMatters: React.FC<WhyItMattersProps> = ({ currentLanguage }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
-              className="text-center"
+              className="text-center group relative"
             >
-              <div className="bg-gold-primary/10 p-4 rounded-full mb-3 mx-auto w-fit">
-                <value.icon className="w-8 h-8 text-gold-primary" />
+              <div className="bg-gold-primary/10 p-4 rounded-full mb-3 mx-auto w-fit group-hover:bg-gold-primary transition-all duration-300">
+                <value.icon className="w-8 h-8 text-gold-primary group-hover:text-white transition-colors duration-300" />
               </div>
-              <h3 className="text-xl font-bold text-navy-primary">
+              <h3 className="text-xl font-bold text-navy-primary group-hover:text-gold-primary transition-colors duration-300">
                 {value.title}
               </h3>
+              
+              {/* Hover Text */}
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-10">
+                <div className="bg-navy-primary text-white px-4 py-2 rounded-lg text-sm whitespace-nowrap shadow-lg">
+                  {value.hoverText}
+                  <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-navy-primary rotate-45"></div>
+                </div>
+              </div>
             </motion.div>
           ))}
         </motion.div>
