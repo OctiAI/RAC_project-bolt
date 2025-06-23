@@ -83,7 +83,7 @@ const Hero: React.FC<HeroProps> = ({ currentLanguage }) => {
               }}
               whileTap={{ scale: 0.95 }}
               className="bg-gold-primary text-navy-primary px-8 py-4 rounded-lg font-bold text-lg border-4 border-white/20 shadow-2xl hover:border-white/40 transition-all duration-300 flex items-center mx-auto space-x-3"
-              className="Book a Free Consultation"
+             
             >
               <Calendar className="w-6 h-6" />
               <span>{t.hero.cta}</span>
