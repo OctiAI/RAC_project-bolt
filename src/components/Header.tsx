@@ -62,10 +62,17 @@ const Header: React.FC<HeaderProps> = ({ currentLanguage, setCurrentLanguage }) 
     }
     setIsMenuOpen(false);
     
-    // Smooth scroll to section
+    // Smooth scroll to section with custom offset for About section
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const headerHeight = 64; // Height of fixed header
+      const extraOffset = key === 'about' ? 100 : 0; // Extra offset for About section
+      const elementPosition = element.offsetTop - headerHeight - extraOffset;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
